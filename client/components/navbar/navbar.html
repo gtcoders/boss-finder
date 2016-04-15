@@ -1,6 +1,6 @@
 <div class="navbar navbar-default navbar-static-top" ng-controller="NavbarController">
   <div class="container">
-    <div class="navbar-header">
+    <div class="navbar-header" ng-show="nav.isLoggedIn()">
       <button class="navbar-toggle" type="button" ng-click="nav.isCollapsed = !nav.isCollapsed">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -10,7 +10,7 @@
       <a href="/" class="navbar-brand">boss-finder</a>
     </div>
     <div uib-collapse="nav.isCollapsed" class="navbar-collapse collapse" id="navbar-main">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav" ng-show="nav.isLoggedIn()">
         <li ng-repeat="item in nav.menu" ui-sref-active="active">
             <a ui-sref="{{item.state}}">{{item.title}}</a>
         </li>
