@@ -4,7 +4,12 @@
 
 class MainController {
 
-  constructor() { }
+  constructor() { 
+    this.features = [
+      'Find your friends or colleagues',
+      'Find a job near job'
+    ];
+  }
 }
 
 angular.module('bossFinderApp')
