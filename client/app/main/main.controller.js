@@ -2,20 +2,20 @@
 
 (function() {
 
-class MainController {
+  class MainController {
 
-  constructor() { 
-    this.features = [
-      'Find your friends or colleagues',
-      'Find a job near job'
-    ];
+    constructor() {
+      this.features = [
+        'Find your friends or colleagues',
+        'Find a job near job'
+      ];
+    }
   }
-}
 
-angular.module('bossFinderApp')
-  .component('main', {
-    templateUrl: 'app/main/main.html',
-    controller: MainController
-  });
+  angular.module('bossFinderApp')
+    .component('main', {
+      templateUrl: 'app/main/main.html',
+      controller: MainController
+    });
 
 })();

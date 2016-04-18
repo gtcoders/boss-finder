@@ -13,18 +13,18 @@ class LoginController {
   login(form) {
     this.submitted = true;
 
-    if (form.$valid) {
+    if(form.$valid) {
       this.Auth.login({
-        email: this.user.email,
-        password: this.user.password
-      })
-      .then(() => {
-        // Logged in, redirect to profile
-        this.$state.go('profile');
-      })
-      .catch(err => {
-        this.errors.other = err.message;
-      });
+          email: this.user.email,
+          password: this.user.password
+        })
+        .then(() => {
+          // Logged in, redirect to profile
+          this.$state.go('profile');
+        })
+        .catch(err => {
+          this.errors.other = err.message;
+        });
     }
   }
 }

@@ -1,16 +1,16 @@
 'use strict';
-(function(){
+(function() {
 
-class ProfileComponent {
-  constructor() {
-    this.message = 'Hello';
+  class ProfileComponent {
+    constructor() {
+      this.message = 'Hello';
+    }
   }
-}
 
-angular.module('bossFinderApp')
-  .component('profile', {
-    templateUrl: 'app/profile/profile.html',
-    controller: ProfileComponent
-  });
+  angular.module('bossFinderApp')
+    .component('profile', {
+      templateUrl: 'app/profile/profile.html',
+      controller: ProfileComponent
+    });
 
 })();

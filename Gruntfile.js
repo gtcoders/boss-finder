@@ -1,7 +1,7 @@
 // Generated on 2016-04-13 using generator-angular-fullstack 3.5.0
 'use strict';
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
   var localConfig;
   try {
     localConfig = require('./server/config/local.env');
@@ -119,6 +119,15 @@ module.exports = function (grunt) {
       },
     },
 
+    jsbeautifier: {
+      options: {
+        config: '.jsbeautifyrc'
+      },
+      source: {
+        src: ['Gruntfile.js', 'server/**/*.js', 'client/**/*.js']
+      }
+    },
+
     // Make sure code styles are up to par and there are no obvious mistakes
     jshint: {
       options: {
@@ -176,7 +185,9 @@ module.exports = function (grunt) {
       options: {
         map: true,
         processors: [
-          require('autoprefixer')({browsers: ['last 2 version']})
+          require('autoprefixer')({
+            browsers: ['last 2 version']
+          })
         ]
       },
       dist: {
@@ -207,14 +218,14 @@ module.exports = function (grunt) {
           env: {
             PORT: process.env.PORT || 9000
           },
-          callback: function (nodemon) {
-            nodemon.on('log', function (event) {
+          callback: function(nodemon) {
+            nodemon.on('log', function(event) {
               console.log(event.colour);
             });
 
             // opens browser on initial server start
-            nodemon.on('config:update', function () {
-              setTimeout(function () {
+            nodemon.on('config:update', function() {
+              setTimeout(function() {
                 require('open')('http://localhost:8080/debug?port=5858');
               }, 500);
             });
@@ -575,7 +586,7 @@ module.exports = function (grunt) {
     less: {
       server: {
         files: {
-          '.tmp/app/app.css' : '<%= yeoman.client %>/app/app.less'
+          '.tmp/app/app.css': '<%= yeoman.client %>/app/app.less'
         }
       }
     },
@@ -596,18 +607,18 @@ module.exports = function (grunt) {
             var aMod = module.test(a);
             var bMod = module.test(b);
             // inject *.module.js first
-            return (aMod === bMod) ? 0 : (aMod ? -1 : 1);
+            return(aMod === bMod) ? 0 : (aMod ? -1 : 1);
           },
           starttag: '<!-- injector:js -->',
           endtag: '<!-- endinjector -->'
         },
         files: {
           '<%= yeoman.client %>/index.html': [
-               [
-                 '<%= yeoman.client %>/{app,components}/**/!(*.spec|*.mock).js',
-                 '!{.tmp,<%= yeoman.client %>}/app/app.{js,ts}'
-               ]
+            [
+              '<%= yeoman.client %>/{app,components}/**/!(*.spec|*.mock).js',
+              '!{.tmp,<%= yeoman.client %>}/app/app.{js,ts}'
             ]
+          ]
         }
       },
 
@@ -653,12 +664,12 @@ module.exports = function (grunt) {
   });
 
   // Used for delaying livereload until after server has restarted
-  grunt.registerTask('wait', function () {
+  grunt.registerTask('wait', function() {
     grunt.log.ok('Waiting for server reload...');
 
     var done = this.async();
 
-    setTimeout(function () {
+    setTimeout(function() {
       grunt.log.writeln('Done waiting!');
       done();
     }, 1500);
@@ -668,12 +679,12 @@ module.exports = function (grunt) {
     this.async();
   });
 
-  grunt.registerTask('serve', function (target) {
-    if (target === 'dist') {
+  grunt.registerTask('serve', function(target) {
+    if(target === 'dist') {
       return grunt.task.run(['build', 'env:all', 'env:prod', 'express:prod', 'wait', 'open', 'express-keepalive']);
     }
 
-    if (target === 'debug') {
+    if(target === 'debug') {
       return grunt.task.run([
         'clean:server',
         'env:all',
@@ -701,22 +712,20 @@ module.exports = function (grunt) {
     ]);
   });
 
-  grunt.registerTask('server', function () {
+  grunt.registerTask('server', function() {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve']);
   });
 
   grunt.registerTask('test', function(target, option) {
-    if (target === 'server') {
+    if(target === 'server') {
       return grunt.task.run([
         'env:all',
         'env:test',
         'mochaTest:unit',
         'mochaTest:integration'
       ]);
-    }
-
-    else if (target === 'client') {
+    } else if(target === 'client') {
       return grunt.task.run([
         'clean:server',
         'env:all',
@@ -727,11 +736,9 @@ module.exports = function (grunt) {
         'wiredep:test',
         'karma'
       ]);
-    }
+    } else if(target === 'e2e') {
 
-    else if (target === 'e2e') {
-
-      if (option === 'prod') {
+      if(option === 'prod') {
         return grunt.task.run([
           'build',
           'env:all',
@@ -739,9 +746,7 @@ module.exports = function (grunt) {
           'express:prod',
           'protractor'
         ]);
-      }
-
-      else {
+      } else {
         return grunt.task.run([
           'clean:server',
           'env:all',
@@ -755,33 +760,25 @@ module.exports = function (grunt) {
           'protractor'
         ]);
       }
-    }
+    } else if(target === 'coverage') {
 
-    else if (target === 'coverage') {
-
-      if (option === 'unit') {
+      if(option === 'unit') {
         return grunt.task.run([
           'env:all',
           'env:test',
           'mocha_istanbul:unit'
         ]);
-      }
-
-      else if (option === 'integration') {
+      } else if(option === 'integration') {
         return grunt.task.run([
           'env:all',
           'env:test',
           'mocha_istanbul:integration'
         ]);
-      }
-
-      else if (option === 'check') {
+      } else if(option === 'check') {
         return grunt.task.run([
           'istanbul_check_coverage'
         ]);
-      }
-
-      else {
+      } else {
         return grunt.task.run([
           'env:all',
           'env:test',
@@ -790,9 +787,7 @@ module.exports = function (grunt) {
         ]);
       }
 
-    }
-
-    else grunt.task.run([
+    } else grunt.task.run([
       'test:server',
       'test:client'
     ]);
@@ -819,6 +814,7 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask('default', [
+    'jsbeautifier',
     'newer:jshint',
     'test',
     'build'

@@ -6,8 +6,7 @@
 import config from './environment';
 
 // When the user disconnects.. perform this
-function onDisconnect(socket) {
-}
+function onDisconnect(socket) {}
 
 // When the user connects.. perform this
 function onConnect(socket) {

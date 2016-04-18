@@ -10,7 +10,9 @@ angular.module('bossFinderApp')
       path: '/socket.io-client'
     });
 
-    var socket = socketFactory({ ioSocket });
+    var socket = socketFactory({
+      ioSocket
+    });
 
     return {
       socket,
@@ -31,14 +33,16 @@ angular.module('bossFinderApp')
         /**
          * Syncs item creation/updates on 'model:save'
          */
-        socket.on(modelName + ':save', function (item) {
-          var oldItem = _.find(array, {_id: item._id});
+        socket.on(modelName + ':save', function(item) {
+          var oldItem = _.find(array, {
+            _id: item._id
+          });
           var index = array.indexOf(oldItem);
           var event = 'created';
 
           // replace oldItem if it exists
           // otherwise just add item to the collection
-          if (oldItem) {
+          if(oldItem) {
             array.splice(index, 1, item);
             event = 'updated';
           } else {
@@ -51,9 +55,11 @@ angular.module('bossFinderApp')
         /**
          * Syncs removed items on 'model:remove'
          */
-        socket.on(modelName + ':remove', function (item) {
+        socket.on(modelName + ':remove', function(item) {
           var event = 'deleted';
-          _.remove(array, {_id: item._id});
+          _.remove(array, {
+            _id: item._id
+          });
           cb(event, item, array);
         });
       },

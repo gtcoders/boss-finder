@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('bossFinderApp')
-  .config(function ($stateProvider) {
+  .config(function($stateProvider) {
     $stateProvider
       .state('profile', {
         url: '/profile',

@@ -4,7 +4,9 @@
 
 'use strict';
 
-import {EventEmitter} from 'events';
+import {
+  EventEmitter
+} from 'events';
 import User from './user.model';
 var UserEvents = new EventEmitter();
 
@@ -18,7 +20,7 @@ var events = {
 };
 
 // Register the event emitter to the model events
-for (var e in events) {
+for(var e in events) {
   var event = events[e];
   User.schema.post(e, emitEvent(event));
 }
