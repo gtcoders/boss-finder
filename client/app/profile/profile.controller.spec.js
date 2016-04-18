@@ -10,7 +10,7 @@ describe('Component: ProfileComponent', function() {
   // Initialize the controller and a mock scope
   beforeEach(inject(function($componentController, $rootScope) {
     scope = $rootScope.$new();
-    ProfileComponent = $componentController('ProfileComponent', {
+    ProfileComponent = $componentController('profile', {
       $scope: scope
     });
   }));
