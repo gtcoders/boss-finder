@@ -23,7 +23,7 @@ export function setup(User, config) {
             name: profile.displayName,
             email: profile.emails[0].value,
             role: 'user',
-            username: profile.emails[0].value.split('@')[0],
+            username: profile.emails[0].value && profile.emails[0].value.split('@')[0],
             provider: 'linkedin',
             linkedin: profile._json
           });
