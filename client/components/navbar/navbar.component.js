@@ -2,7 +2,7 @@
 
 (function() {
 
-  class NavbarComponent {
+  class NavbarController {
     //start-non-standard
     menu = [{
       'title': 'Profile',
@@ -22,7 +22,7 @@
   angular.module('bossFinderApp')
     .component('navbar', {
       templateUrl: 'components/navbar/navbar.html',
-      controller: NavbarComponent
+      controller: NavbarController
     });
 
 })();
