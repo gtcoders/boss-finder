@@ -1,7 +1,7 @@
 'use strict';
 (function() {
 
-  class ProfileComponent {
+  class ProfileController {
     constructor() {
       this.message = 'Hello';
     }
@@ -10,7 +10,7 @@
   angular.module('bossFinderApp')
     .component('profile', {
       templateUrl: 'app/profile/profile.html',
-      controller: ProfileComponent
+      controller: ProfileController
     });
 
 })();
