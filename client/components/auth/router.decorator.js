@@ -18,7 +18,7 @@
 
             event.preventDefault();
             return Auth.isLoggedIn(_.noop).then(is => {
-              $state.go(is ? 'main' : 'login');
+              $state.go(is ? 'landing' : 'login');
             });
           });
         } else {
@@ -28,7 +28,7 @@
             }
 
             event.preventDefault();
-            $state.go('main');
+            $state.go('landing');
           });
         }
       });

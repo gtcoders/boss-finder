@@ -3,8 +3,8 @@
 angular.module('bossFinderApp')
   .config(function($stateProvider) {
     $stateProvider
-      .state('main', {
+      .state('landing', {
         url: '/',
-        template: '<main></main>'
+        template: '<landing></landing>'
       });
   });

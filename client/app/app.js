@@ -12,9 +12,6 @@ angular.module('bossFinderApp', [
     'ui.bootstrap',
     'validation.match'
   ])
-  .config(function($urlRouterProvider, $locationProvider) {
-    $urlRouterProvider
-      .otherwise('/');
-
+  .config(function($locationProvider) {
     $locationProvider.html5Mode(true);
   });

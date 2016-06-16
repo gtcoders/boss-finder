@@ -11,11 +11,11 @@ angular.module('bossFinderApp')
       })
       .state('logout', {
         url: '/logout?referrer',
-        referrer: 'main',
+        referrer: 'landing',
         template: '',
         controller: function($state, Auth) {
           Auth.logout();
-          $state.go('main');
+          $state.go('landing');
         }
       })
       .state('signup', {

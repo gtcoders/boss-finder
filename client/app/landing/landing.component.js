@@ -2,7 +2,7 @@
 
 (function() {
 
-  class MainController {
+  class LandingController {
 
     constructor() {
       this.features = [
@@ -13,9 +13,9 @@
   }
 
   angular.module('bossFinderApp')
-    .component('main', {
-      templateUrl: 'app/main/main.html',
-      controller: MainController
+    .component('landing', {
+      templateUrl: 'app/landing/landing.html',
+      controller: LandingController
     });
 
 })();
