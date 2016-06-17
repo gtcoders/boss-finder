@@ -5,9 +5,7 @@ angular.module('bossFinderApp')
     $stateProvider
       .state('login', {
         url: '/login',
-        templateUrl: 'app/account/login/login.html',
-        controller: 'LoginController',
-        controllerAs: 'vm'
+        template: '<login></login>'
       })
       .state('logout', {
         url: '/logout?referrer',
@@ -20,15 +18,11 @@ angular.module('bossFinderApp')
       })
       .state('signup', {
         url: '/signup',
-        templateUrl: 'app/account/signup/signup.html',
-        controller: 'SignupController',
-        controllerAs: 'vm'
+        template: '<signup></signup>'
       })
       .state('settings', {
         url: '/settings',
-        templateUrl: 'app/account/settings/settings.html',
-        controller: 'SettingsController',
-        controllerAs: 'vm',
+        template: '<settings></settings>',
         authenticate: true
       });
   })
